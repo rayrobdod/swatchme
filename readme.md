@@ -1,12 +1,2 @@
-#Type Testing Demo
-
-Application for testing webfonts in-browser.
-
-##Todo
-- Margins
-- Container Sizes
-- Font-style
-- Color
-- Addition of more elements
-- UI
-- Additional Library & Local typefaces (typekit, etc)
+#Color Swatch Generator App (name pending)
+Javascript application for converting color types, and creating swatches based on the input.
