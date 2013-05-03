@@ -1,3 +1,6 @@
+// Math inspired primarily by EasyRGB: http://www.easyrgb.com/index.php?X=MATH
+// & of course, Wikipedia.
+
 
 //Globals
 
@@ -5,7 +8,8 @@ var hexVal, rVal, gVal, bVal, hVal, sVal, lVal, rgbVal, hslVal, rgbCSS, hslCSS;
 var hexField = $('#hex'),
     rgbField = $('#rgb'),
     hslField = $('#hsl'),
-    inputs = $('input');
+    inputs = $('input'),
+    swatches = $('#swatches');
 
 // Convert RGB to HSL. HSL values returned in [0,1] range
 function rgbToHSL(r,g,b) {
@@ -34,9 +38,7 @@ function rgbToHSL(r,g,b) {
 
     h = Math.round(h * 360), s = Math.round(s * 100), l = Math.round(l * 100);
 
-    setVars(h,s,l,hVal,sVal,lVal);
-    return [h,s,l];
-
+    setHSL(h,s,l);
 }
 
 function hslToRGB(h,s,l) {
@@ -58,7 +60,7 @@ function hslToRGB(h,s,l) {
     b = Math.round(255 * hueToRGB(var1, var2, h - (1/3)));
     }
 
-    setVars(r,g,b,rVal,gVal,bVal);
+    setRGB(r,g,b);
     return [r,g,b];
 }
 
@@ -76,14 +78,16 @@ function hueToRGB(a, b, c) {
 
 //hex to rgb
 function hexToRGB(hex) {
+    //check if hash exists
+    if (hex.substring(0,1) === '#') {
+        hex = hex.substring(1,7);
+    }
     var r, g, b;
     r = parseInt(hex.substring(0,2),16);
     g = parseInt(hex.substring(2,4),16);
     b = parseInt(hex.substring(4,6),16);
 
     setRGB(r,g,b);
-
-    return [r,g,b];
 }
 
 
@@ -112,20 +116,33 @@ function setRGB(r,g,b) {
 function setHSL(h,s,l) {
     hVal = h, sVal = s, lVal = l;
     hslVal = h + ', ' + s + ', ' + l;
-    hslCSS = 'hsl('+h+', '+s+', '+l+')';
+    hslCSS = 'hsl('+h+', '+s+'%, '+l+'%)';
 }
 
-function constructColors() {
-    rgbVal = rVal + ', ' + gVal + ', ' + bVal;
-    hslVal = hVal + ', ' + sVal +', ' + lVal;
+function constructColors(hex) {
+    hexToRGB(hex);
+    rgbToHSL(rVal, gVal, bVal);
 }
+
+function generateSwatches() {
+    var swatchColor = [], swatchL = lVal;
+    for (x = 0;x<10;x++) {
+        swatchColor[x] = 'hsl('+hVal+', '+sVal+'%, '+swatchL+'%)';
+        swatchL += 10;
+    }
+    swatches.children().each(function(i){
+
+        $(this).css('color', swatchColor[i]);
+    });
+}
+
 
 $(document).ready(function() {
     hexField.on('change', function(){
-        console.log(hexField.val());
         hexVal = hexField.val();
-        hexToRGB(hexVal);
+        constructColors(hexVal);
         rgbField.val(rgbVal);
-
+        hslField.val(hslVal);
+        generateSwatches();
     });
 });
