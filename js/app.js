@@ -126,13 +126,14 @@ function constructColors(hex) {
 
 function generateSwatches() {
     var swatchColor = [], swatchL = lVal;
-    for (x = 0;x<10;x++) {
-        swatchColor[x] = 'hsl('+hVal+', '+sVal+'%, '+swatchL+'%)';
-        swatchL += 10;
-    }
+    // for (x = 0;x<10;x++) {
+    //     swatchColor[x] = 'hsl('+hVal+', '+sVal+'%, '+swatchL+'%)';
+    //     swatchL += 10;
+    // }
     swatches.children().each(function(i){
-
-        $(this).css('color', swatchColor[i]);
+        swatchColor[i] = 'hsl('+hVal+', '+sVal+'%, '+swatchL+'%)';
+        swatchL += 10;
+        $(this).css('background-color', swatchColor[i]);
     });
 }
 
