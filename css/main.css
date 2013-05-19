@@ -1,53 +1,480 @@
+*, *:before, *:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+h1, h2, h3, h4, h5, h6,
+p, blockquote, pre,
+dl, dd, ol, ul,
+form, fieldset, legend,
+table, th, td, caption,
+hr, body {
+  margin: 0;
+  padding: 0;
+}
+
+/**
+ * Give a help cursor to elements that give extra info on `:hover`.
+ */
+abbr[title], dfn[title] {
+  cursor: help;
+}
+
+/**
+ * Remove underlines from potentially troublesome elements.
+ */
+a, u, ins {
+  text-decoration: none;
+}
+
+/**
+ * Apply faux underline via `border-bottom`.
+ */
+ins {
+  border-bottom: 1px solid;
+}
+
+img {
+  font-style: italic;
+}
+
+/**
+ * Give form elements some cursor interactions...
+ */
+label,
+input,
+textarea,
+button,
+select,
+option {
+  cursor: pointer;
+}
+
+.text-input:active,
+.text-input:focus,
+textarea:active,
+textarea:focus {
+  cursor: text;
+  outline: none;
+}
+
+q {
+  quotes: "\201C" "\201D" "\2018" "\2019";
+}
+
+/* $Helper classes and Specific Mixins
+**************************************************************************/
+.demo {
+  background-color: #efefef;
+  color: #ccc;
+  padding: 12px;
+}
+
+.right {
+  float: right;
+  margin-left: 24px;
+}
+
+.left {
+  float: left;
+  margin-right: 24px;
+}
+
+.contact-links li {
+  list-style-type: none;
+}
+
+.wrap {
+  max-width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+}
+@media screen and (min-width: 1200px) {
+  .wrap {
+    max-width: 1100px;
+  }
+}
+
+.touch-hidden {
+  display: none;
+}
+@media screen and (min-width: 700px) {
+  .touch-hidden {
+    display: inline;
+  }
+}
+
+.hide {
+  display: none;
+}
+
+.medium {
+  font-size: 47px;
+}
+
+.half, .one-third, .two-thirds {
+  float: left;
+  padding: 0 12px;
+}
+
+.whole {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.half {
+  width: 50%;
+}
+
+.one-third {
+  width: 33.33%;
+}
+
+.two-thirds {
+  width: 66.66%;
+}
+
+.half:first-child {
+  padding-left: 0;
+}
+
+.half:last-child {
+  padding-right: 0;
+}
+
+@media screen and (min-width: 43.75em) {
+  .gold-lrg, .gold-sml {
+    float: left;
+    padding: 0 12px;
+  }
+
+  .gold-lrg {
+    width: 62%;
+  }
+
+  .gold-sml {
+    width: 38%;
+  }
+
+  .gold-first {
+    padding-right: 24px;
+  }
+
+  .desk-half, .tab-half {
+    float: left;
+    padding: 0 12px;
+  }
+
+  .desk-whole, .tab-whole {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  .tab-half, .desk-half {
+    width: 50%;
+  }
+
+  .desk-half:first-child, .tab-half:first-child {
+    padding-left: 0;
+  }
+
+  .desk-half:last-child, .tab-half:last-child {
+    padding-right: 0;
+  }
+
+  .desk-two-col p {
+    -webkit-column-count: 2;
+    -moz-column-count: 2;
+    -ms-column-count: 2;
+    -o-column-count: 2;
+    column-count: 2;
+    -webkit-column-gap: 2em;
+    -moz-column-gap: 2em;
+    -ms-column-gap: 2em;
+    -o-column-gap: 2em;
+    column-gap: 2em;
+  }
+}
+.first {
+  padding-left: 0;
+  clear: left;
+}
+
+.last {
+  padding-right: 0;
+}
+
+.gw {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  margin-left: -24px;
+  letter-spacing: -0.31em;
+  word-spacing: -0.43em;
+}
+
+.g {
+  display: inline-block;
+  padding-left: 24px;
+  vertical-align: top;
+  letter-spacing: normal;
+  word-spacing: normal;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.one-whole {
+  width: 100%;
+}
+
+.one-half {
+  width: 50%;
+}
+
+.one-third {
+  width: 33.333%;
+}
+
+.two-thirds {
+  width: 66.666%;
+}
+
+.one-quarter {
+  width: 25%;
+}
+
+.three-quarters {
+  width: 75%;
+}
+
+.one-fifth {
+  width: 20%;
+}
+
+.two-fifths {
+  width: 40%;
+}
+
+.three-fifths {
+  width: 60%;
+}
+
+.four-fifths {
+  width: 80%;
+}
+
+/* $Base Styling and Typography
+**************************************************************************/
+html {
+  font: 1em/1.5 "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  overflow-y: scroll;
+  min-height: 100%;
+  background: #efefef;
+  color: #222222;
+}
+
+body {
+  height: 100%;
+}
+
+h1, h2, h3, h4, h5 {
+  font-style: normal;
+  font-weight: 500;
+  font-family: "futura-pt", "Futura", Verdana, sans-serif;
+}
+
+h1, .h1 {
+  font-size: 76px;
+  font-size: 4.75rem;
+}
+
+h2, .h2 {
+  font-size: 47px;
+  font-size: 2.9375rem;
+}
+
+h3, .h3 {
+  font-size: 29px;
+  font-size: 1.8125rem;
+}
+
+ol {
+  list-style-type: decimal;
+}
+
+ul {
+  list-style-type: disc;
+}
+
+a {
+  color: #4387f4;
+  text-decoration: none;
+  outline: 0;
+  border-bottom: 1px solid transparent;
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -ms-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+a:hover, a:focus {
+  color: #4387f4;
+}
+
+p a:hover {
+  border-bottom: 1px solid #4387f4;
+}
+
+blockquote {
+  margin-bottom: 24px;
+  padding: 12px;
+  *zoom: 1;
+}
+blockquote:before, blockquote:after {
+  content: " ";
+  display: table;
+}
+blockquote:after {
+  clear: both;
+}
+
+blockquote.short {
+  margin-right: auto;
+  margin-left: auto;
+  max-width: 640px;
+}
+
+blockquote p {
+  margin: 0;
+  font-style: italic;
+}
+
+blockquote cite {
+  clear: right;
+  float: right;
+  font-size: 18px;
+  font-size: 1.125rem;
+}
+
+figure {
+  margin: 0;
+}
+
 /*
-Syntax error: File to import not found or unreadable: font-awesome.
-              Load path: /Users/mmichon/Dropbox/_development/playground/color-gen
-        on line 8 of css/main.scss
-
-3: @import 'vars';
-4: @import 'framework/framework';
-5: 
-6: //Site-specific Components Components
-7: 
-8: @import 'font-awesome';
-9: @import 'ui';
-
-Backtrace:
-css/main.scss:8
-/Users/mmichon/.rvm/gems/ruby-1.9.3-p374/gems/sass-3.2.8/lib/sass/tree/import_node.rb:67:in `rescue in import'
-/Users/mmichon/.rvm/gems/ruby-1.9.3-p374/gems/sass-3.2.8/lib/sass/tree/import_node.rb:45:in `import'
-/Users/mmichon/.rvm/gems/ruby-1.9.3-p374/gems/sass-3.2.8/lib/sass/tree/import_node.rb:28:in `imported_file'
-/Users/mmichon/.rvm/gems/ruby-1.9.3-p374/gems/sass-3.2.8/lib/sass/tree/import_node.rb:37:in `css_import?'
-/Users/mmichon/.rvm/gems/ruby-1.9.3-p374/gems/sass-3.2.8/lib/sass/tree/visitors/perform.rb:217:in `visit_import'
-/Users/mmichon/.rvm/gems/ruby-1.9.3-p374/gems/sass-3.2.8/lib/sass/tree/visitors/base.rb:37:in `visit'
-/Users/mmichon/.rvm/gems/ruby-1.9.3-p374/gems/sass-3.2.8/lib/sass/tree/visitors/perform.rb:100:in `visit'
-/Users/mmichon/.rvm/gems/ruby-1.9.3-p374/gems/sass-3.2.8/lib/sass/tree/visitors/base.rb:53:in `block in visit_children'
-/Users/mmichon/.rvm/gems/ruby-1.9.3-p374/gems/sass-3.2.8/lib/sass/tree/visitors/base.rb:53:in `map'
-/Users/mmichon/.rvm/gems/ruby-1.9.3-p374/gems/sass-3.2.8/lib/sass/tree/visitors/base.rb:53:in `visit_children'
-/Users/mmichon/.rvm/gems/ruby-1.9.3-p374/gems/sass-3.2.8/lib/sass/tree/visitors/perform.rb:109:in `block in visit_children'
-/Users/mmichon/.rvm/gems/ruby-1.9.3-p374/gems/sass-3.2.8/lib/sass/tree/visitors/perform.rb:121:in `with_environment'
-/Users/mmichon/.rvm/gems/ruby-1.9.3-p374/gems/sass-3.2.8/lib/sass/tree/visitors/perform.rb:108:in `visit_children'
-/Users/mmichon/.rvm/gems/ruby-1.9.3-p374/gems/sass-3.2.8/lib/sass/tree/visitors/base.rb:37:in `block in visit'
-/Users/mmichon/.rvm/gems/ruby-1.9.3-p374/gems/sass-3.2.8/lib/sass/tree/visitors/perform.rb:128:in `visit_root'
-/Users/mmichon/.rvm/gems/ruby-1.9.3-p374/gems/sass-3.2.8/lib/sass/tree/visitors/base.rb:37:in `visit'
-/Users/mmichon/.rvm/gems/ruby-1.9.3-p374/gems/sass-3.2.8/lib/sass/tree/visitors/perform.rb:100:in `visit'
-/Users/mmichon/.rvm/gems/ruby-1.9.3-p374/gems/sass-3.2.8/lib/sass/tree/visitors/perform.rb:7:in `visit'
-/Users/mmichon/.rvm/gems/ruby-1.9.3-p374/gems/sass-3.2.8/lib/sass/tree/root_node.rb:20:in `render'
-/Users/mmichon/.rvm/gems/ruby-1.9.3-p374/gems/sass-3.2.8/lib/sass/engine.rb:315:in `_render'
-/Users/mmichon/.rvm/gems/ruby-1.9.3-p374/gems/sass-3.2.8/lib/sass/engine.rb:262:in `render'
-/Users/mmichon/.rvm/gems/ruby-1.9.3-p374/gems/sass-3.2.8/lib/sass/plugin/compiler.rb:341:in `update_stylesheet'
-/Users/mmichon/.rvm/gems/ruby-1.9.3-p374/gems/sass-3.2.8/lib/sass/plugin/compiler.rb:203:in `block in update_stylesheets'
-/Users/mmichon/.rvm/gems/ruby-1.9.3-p374/gems/sass-3.2.8/lib/sass/plugin/compiler.rb:201:in `each'
-/Users/mmichon/.rvm/gems/ruby-1.9.3-p374/gems/sass-3.2.8/lib/sass/plugin/compiler.rb:201:in `update_stylesheets'
-/Users/mmichon/.rvm/gems/ruby-1.9.3-p374/gems/sass-3.2.8/lib/sass/plugin/compiler.rb:299:in `block in watch'
-/Users/mmichon/.rvm/gems/ruby-1.9.3-p374/gems/sass-3.2.8/vendor/listen/lib/listen/multi_listener.rb:108:in `call'
-/Users/mmichon/.rvm/gems/ruby-1.9.3-p374/gems/sass-3.2.8/vendor/listen/lib/listen/multi_listener.rb:108:in `on_change'
-/Users/mmichon/.rvm/gems/ruby-1.9.3-p374/gems/sass-3.2.8/vendor/listen/lib/listen/multi_listener.rb:117:in `block in initialize_adapter'
-/Users/mmichon/.rvm/gems/ruby-1.9.3-p374/gems/sass-3.2.8/vendor/listen/lib/listen/adapter.rb:198:in `call'
-/Users/mmichon/.rvm/gems/ruby-1.9.3-p374/gems/sass-3.2.8/vendor/listen/lib/listen/adapter.rb:198:in `report_changes'
-/Users/mmichon/.rvm/gems/ruby-1.9.3-p374/gems/sass-3.2.8/vendor/listen/lib/listen/adapter.rb:210:in `poll_changed_dirs'
-/Users/mmichon/.rvm/gems/ruby-1.9.3-p374/gems/sass-3.2.8/vendor/listen/lib/listen/adapters/darwin.rb:38:in `block in start'
+  Standard buttons based on preset colors.
 */
-body:before {
-  white-space: pre;
-  font-family: monospace;
-  content: "Syntax error: File to import not found or unreadable: font-awesome.\A               Load path: /Users/mmichon/Dropbox/_development/playground/color-gen\A         on line 8 of css/main.scss\A \A 3: @import 'vars';\A 4: @import 'framework/framework';\A 5: \A 6: //Site-specific Components Components\A 7: \A 8: @import 'font-awesome';\A 9: @import 'ui';"; }
+.btn {
+  display: inline-block;
+  vertical-align: middle;
+  font-family: inherit;
+  font-size: 100%;
+  cursor: pointer;
+  border: none;
+  margin: 0;
+  line-height: 2;
+  padding: 0 1em;
+  border-radius: 4px;
+  text-decoration: none;
+  text-align: center;
+}
+.btn, .btn:hover {
+  text-decoration: none;
+}
+.btn:active, .btn:focus {
+  outline: none;
+}
+
+.btn-primary {
+  background-color: #4387f4;
+}
+
+.btn-secondary {
+  background-color: #e63600;
+}
+
+.btn-inactive {
+  background-color: #cccccc;
+}
+
+.btn-block {
+  display: block;
+}
+
+.btn-square {
+  border-radius: 0;
+}
+
+.btn-pill {
+  border-radius: 500px;
+}
+
+.btn-group {
+  display: inline-block;
+  letter-spacing: -0.31em;
+  word-spacing: -0.43em;
+}
+
+.btn-group > .btn {
+  letter-spacing: 0;
+  word-spacing: 0;
+  border-right: 1px solid rgba(0, 0, 0, 0.3);
+  border-radius: 0;
+}
+.btn-group > .btn:first-child {
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+.btn-group > .btn:last-child {
+  border-right: none;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+
+/* TEST */
+.wrapper {
+  width: 80%;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.swatch {
+  display: inline-block;
+  position: relative;
+  margin: 0 5px;
+  width: 150px;
+  height: 150px;
+  box-shadow: 0 2px 5px rgba(128, 128, 128, 0.4);
+}
+
+.label {
+  box-sizing: border-box;
+  height: 2em;
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background-color: #fff;
+  width: 100%;
+  text-align: center;
+  padding: .5em;
+  color: #888;
+  font-size: .75em;
+}
+
+#hex {
+  display: block;
+  width: 8em;
+  line-height: 2em;
+  font-size: 1.25em;
+  border-radius: 4px;
+  border: none;
+  margin: 10px auto;
+  text-align: center;
+}
