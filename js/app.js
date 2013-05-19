@@ -125,16 +125,30 @@ function constructColors(hex) {
 }
 
 function generateSwatches() {
-    var swatchColor = [], swatchL = lVal;
-    // for (x = 0;x<10;x++) {
-    //     swatchColor[x] = 'hsl('+hVal+', '+sVal+'%, '+swatchL+'%)';
-    //     swatchL += 10;
-    // }
-    swatches.children().each(function(i){
-        swatchColor[i] = 'hsl('+hVal+', '+sVal+'%, '+swatchL+'%)';
-        swatchL += 10;
-        $(this).css('background-color', swatchColor[i]);
-    });
+    var swatchColor = [], swatchL = lVal, tempL = lVal;
+
+    if (tempL >= 50) {
+        for (tempL; tempL <= 100; tempL+=5) {
+            console.log(tempL);
+        }
+    } else {
+        for (tempL; tempL >= 0; tempL -= 5) {
+            console.log(tempL);
+            drawSwatch('hsl('+hVal+', '+sVal+'%, '+tempL+'%)');
+
+        }
+    }
+
+    // swatches.each(function(i){
+    //     swatchColor[i] = 'hsl('+hVal+', '+sVal+'%, '+swatchL+'%)';
+    //     $(this).css('background-color', swatchColor[i]);
+    //     swatchL += 5;
+    // });
+}
+
+function drawSwatch(color) {
+    swatchTmpl = $('<div class="swatch"><div class="label">'+color+'</div></div>').css('background-color', color);
+    swatchTmpl.appendTo('#swatches');
 }
 
 

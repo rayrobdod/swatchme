@@ -1746,8 +1746,43 @@ ul.icons li [class*=" icon-"] {
   content: "\f115";
 }
 
+.wrapper {
+  width: 80%;
+  text-align: center;
+  margin: 0 auto;
+}
+
 .swatch {
-  width: 100px;
-  height: 100px;
+  display: inline-block;
+  position: relative;
+  margin: 0 5px;
+  width: 150px;
+  height: 150px;
+  box-shadow: 0 2px 5px rgba(128, 128, 128, 0.4);
+}
+
+.label {
+  box-sizing: border-box;
+  height: 2em;
   display: block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background-color: #fff;
+  width: 100%;
+  text-align: center;
+  padding: .5em;
+  color: #888;
+  font-size: .75em;
+}
+
+#hex {
+  display: block;
+  width: 8em;
+  line-height: 2em;
+  font-size: 1.25em;
+  border-radius: 4px;
+  border: none;
+  margin: 10px auto;
+  text-align: center;
 }
