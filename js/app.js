@@ -125,19 +125,25 @@ function constructColors(hex) {
 }
 
 function generateSwatches() {
-    var swatchColor = [], swatchL = lVal, tempL = lVal;
+    var swatchColor = [], swatchL = lVal, tempL = lVal, tempL2 = lVal, lArray = [lVal, 0 , 100];
 
-    if (tempL >= 50) {
-        for (tempL; tempL <= 100; tempL+=5) {
-            console.log(tempL);
+        for (tempL; tempL < 100; tempL+=10) {
+            // drawSwatch('hsl('+hVal+', '+sVal+'%, '+tempL+'%)');
+            if (tempL != lVal) {
+                lArray.push(tempL);
+            }
         }
-    } else {
-        for (tempL; tempL >= 0; tempL -= 5) {
-            console.log(tempL);
-            drawSwatch('hsl('+hVal+', '+sVal+'%, '+tempL+'%)');
+        for (tempL2; tempL2 > 0; tempL2-=10) {
+            if (tempL2 != lVal) {
+                lArray.push(tempL2);
+            }
+        }
 
+        lArray = lArray.sort(intSort);
+
+        for (x=0; x < lArray.length; x++) {
+            drawSwatch('hsl('+hVal+', '+sVal+'%, '+lArray[x]+'%)');
         }
-    }
 
     // swatches.each(function(i){
     //     swatchColor[i] = 'hsl('+hVal+', '+sVal+'%, '+swatchL+'%)';
@@ -151,6 +157,9 @@ function drawSwatch(color) {
     swatchTmpl.appendTo('#swatches');
 }
 
+
+//integer sorting
+function intSort(a,b) { return a-b; }
 
 $(document).ready(function() {
     hexField.on('change', function(){
