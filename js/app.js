@@ -125,44 +125,46 @@ function constructColors(hex) {
 }
 
 function generateSwatches() {
-    var swatchColor = [], swatchL = lVal, tempL = lVal, tempL2 = lVal, lArray = [lVal, 0 , 100];
+    var swatchColor = [], swatchL = lVal, lArray = [lVal, 10 , 90];
 
-        for (tempL; tempL < 100; tempL+=10) {
+        for (x=lVal; x < 90; x+=10) {
             // drawSwatch('hsl('+hVal+', '+sVal+'%, '+tempL+'%)');
-            if (tempL != lVal) {
-                lArray.push(tempL);
+            if (x != lVal) {
+                lArray.push(x);
             }
         }
-        for (tempL2; tempL2 > 0; tempL2-=10) {
-            if (tempL2 != lVal) {
-                lArray.push(tempL2);
+        for (x = lVal; x > 10; x-=10) {
+            if (x != lVal) {
+                lArray.push(x);
             }
         }
 
-        lArray = lArray.sort(intSort);
+        lArray = lArray.sort(intSort); // Sort l values from smallest to largest
 
+        //Draw swatches
         for (x=0; x < lArray.length; x++) {
             drawSwatch('hsl('+hVal+', '+sVal+'%, '+lArray[x]+'%)');
         }
 
-    // swatches.each(function(i){
-    //     swatchColor[i] = 'hsl('+hVal+', '+sVal+'%, '+swatchL+'%)';
-    //     $(this).css('background-color', swatchColor[i]);
-    //     swatchL += 5;
-    // });
 }
 
+//Draw function (TODO: add check for if swatch is the origin color and change class accordingly)
 function drawSwatch(color) {
     swatchTmpl = $('<div class="swatch"><div class="label">'+color+'</div></div>').css('background-color', color);
-    swatchTmpl.appendTo('#swatches');
+    swatchTmpl.appendTo(swatches);
 }
 
+function clearSwatches() {
+    swatches.html('');
+}
 
 //integer sorting
 function intSort(a,b) { return a-b; }
 
+
 $(document).ready(function() {
     hexField.on('change', function(){
+        clearSwatches();
         hexVal = hexField.val();
         constructColors(hexVal);
         rgbField.val(rgbVal);
