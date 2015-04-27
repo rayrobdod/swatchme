@@ -2,4 +2,9 @@ language: node_js
 node_js:
   - "0.12"
 
-install: watch.sh
+install:
+  - "npm install --save-dev qunitjs"
+  - "npm install --save-dev sass"
+
+before_script:
+  - "watch.sh"
