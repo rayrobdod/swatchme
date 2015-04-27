@@ -7,4 +7,4 @@ install:
   - "npm install --save-dev sass"
 
 before_script:
-  - "watch.sh"
+  - "./watch.sh"
