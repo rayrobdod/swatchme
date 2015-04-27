@@ -6,5 +6,5 @@ install:
   - "npm install --save-dev qunitjs"
   - "npm install --save-dev sass"
 
-before_script:
-  - "./watch.sh"
+#before_script:
+#  - "./watch.sh"
