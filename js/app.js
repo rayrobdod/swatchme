@@ -5,11 +5,6 @@
 //Globals
 
 var hexVal, rVal, gVal, bVal, hVal, sVal, lVal, rgbVal, hslVal, rgbCSS, hslCSS;
-var hexField = $('#hex'),
-    rgbField = $('#rgb'),
-    hslField = $('#hsl'),
-    // inputs = $('input'),
-    swatches = $('#swatches');
 
 // Convert RGB to HSL. HSL values returned in [0,1] range
 function rgbToHSL(r,g,b) {
@@ -160,18 +155,3 @@ function clearSwatches() {
 
 //integer sorting
 function intSort(a,b) { return a-b; }
-
-
-$(document).ready(function() {
-    hexField.on('change', function(){
-        hexVal = hexField.val();
-        if (hexVal !== '') {
-            clearSwatches();
-            hexVal = hexField.val();
-            constructColors(hexVal);
-            rgbField.val(rgbVal);
-            hslField.val(hslVal);
-            generateSwatches();
-        }
-    });
-});

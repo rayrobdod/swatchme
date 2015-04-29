@@ -43,5 +43,26 @@
 </div>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 <script src="js/app.js"></script>
+<script>
+	var hexField = $('#hex'),
+		rgbField = $('#rgb'),
+		hslField = $('#hsl'),
+		// inputs = $('input'),
+		swatches = $('#swatches');
+	
+	$(document).ready(function() {
+		hexField.on('change', function(){
+			hexVal = hexField.val();
+			if (hexVal !== '') {
+				clearSwatches();
+				hexVal = hexField.val();
+				constructColors(hexVal);
+				rgbField.val(rgbVal);
+				hslField.val(hslVal);
+				generateSwatches();
+			}
+		});
+	});
+</script>
 </body>
 </html>
