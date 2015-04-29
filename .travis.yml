@@ -12,4 +12,4 @@ install:
 #  - "./watch.sh"
 
 script:
-  - "node js\testrunner.js"
+  - "node js/testrunner.js"
