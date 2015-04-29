@@ -3,10 +3,8 @@ node_js:
   - "0.12"
 
 install:
-  - "npm install --save-dev qunitjs"
   - "npm install --save-dev sass"
   - "npm i qunit"
-  - "npm i jquery@1.11.1"
 
 #before_script:
 #  - "./watch.sh"
