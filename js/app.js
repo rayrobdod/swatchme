@@ -106,7 +106,7 @@ function setRGB(r,g,b) {
     rgbVal = r + ', ' + g + ', ' + b;
     rgbCSS = 'rgb('+r+', '+g+', '+b+')';
     
-	if (exports) {
+	if (typeof exports !== 'undefined') {
 		exports.rVal = r, exports.gVal = g, exports.bVal = b;
 		exports.rgbVal = r + ', ' + g + ', ' + b;
 		exports.rgbCSS = 'rgb('+r+', '+g+', '+b+')';
@@ -165,7 +165,7 @@ function intSort(a,b) { return a-b; }
 
 
 
-if (exports) {
+if (typeof exports !== 'undefined') {
 	exports['rgbToHex'] = rgbToHex;
 	exports['setRGB'] = setRGB;
 	exports['rgbToHSL'] = rgbToHSL;
