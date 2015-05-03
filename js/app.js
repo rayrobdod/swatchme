@@ -4,7 +4,7 @@
 
 //Globals
 
-var hexVal, rVal, gVal, bVal, hVal, sVal, lVal, rgbVal, hslVal, rgbCSS, hslCSS;
+var hexVal, rVal, gVal, bVal, hVal, sVal, lVal, rgbCSS, hslCSS;
 
 // Convert RGB to HSL. HSL values returned in [0,1] range
 function rgbToHSL(r,g,b) {
@@ -103,14 +103,12 @@ function rgbToHex(r,g,b) {
 //Handles setting of RGB-related variables
 function setRGB(r,g,b) {
     rVal = r, gVal = g, bVal = b;
-    rgbVal = r + ', ' + g + ', ' + b;
     rgbCSS = 'rgb('+r+', '+g+', '+b+')';
 }
 
 //TEMPORARY ------ Change these once regex is working to handle % signs
 function setHSL(h,s,l) {
     hVal = h, sVal = s, lVal = l;
-    hslVal = h + ', ' + s + ', ' + l;
     hslCSS = 'hsl('+h+', '+s+'%, '+l+'%)';
 }
 
@@ -174,8 +172,6 @@ if (typeof exports !== 'undefined') {
 			hVal : hVal,
 			sVal : sVal,
 			lVal : lVal,
-			rgbVal : rgbVal,
-			hslVal : hslVal,
 			rgbCSS : rgbCSS,
 			hslCSS : hslCSS
 		};
