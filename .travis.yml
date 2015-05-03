@@ -5,6 +5,7 @@ node_js:
 install:
   - "npm install --save-dev sass"
   - "npm i qunit"
+  - "npm i istanbul"
 
 #before_script:
 #  - "./watch.sh"
