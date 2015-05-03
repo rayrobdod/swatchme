@@ -33,7 +33,7 @@ function rgbToHSL(r,g,b) {
 
     h = Math.round(h * 360), s = Math.round(s * 100), l = Math.round(l * 100);
 
-    setHSL(h,s,l);
+    return [h,s,l];
 }
 
 function hslToRGB(h,s,l) {
@@ -105,6 +105,12 @@ function setRGB(r,g,b) {
     rVal = r, gVal = g, bVal = b;
     rgbVal = r + ', ' + g + ', ' + b;
     rgbCSS = 'rgb('+r+', '+g+', '+b+')';
+    
+	if (exports) {
+		exports.rVal = r, exports.gVal = g, exports.bVal = b;
+		exports.rgbVal = r + ', ' + g + ', ' + b;
+		exports.rgbCSS = 'rgb('+r+', '+g+', '+b+')';
+    }
 }
 
 //TEMPORARY ------ Change these once regex is working to handle % signs
@@ -116,7 +122,8 @@ function setHSL(h,s,l) {
 
 function constructColors(hex) {
     hexToRGB(hex);
-    rgbToHSL(rVal, gVal, bVal);
+    var hsl = rgbToHSL(rVal, gVal, bVal);
+    setHSL(hsl[0], hsl[1], hsl[2]);
 }
 
 function generateSwatches() {
@@ -161,4 +168,5 @@ function intSort(a,b) { return a-b; }
 if (exports) {
 	exports['rgbToHex'] = rgbToHex;
 	exports['setRGB'] = setRGB;
+	exports['rgbToHSL'] = rgbToHSL;
 }
