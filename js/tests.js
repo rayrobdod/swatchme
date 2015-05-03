@@ -1,7 +1,11 @@
-QUnit.test( "rgbToHex(0,0,0)", function( assert ) {
-	assert.ok( '000000' == rgbToHex(0,0,0), hexVal );
-});
+var app = require("./app.js");
 
-QUnit.test( "rgbToHex(255,255,255)", function( assert ) {
-	assert.ok( 'FFFFFF' == rgbToHex(255,255,255) );
-});
+exports['rgbToHex(0,0,0)'] = function( assert ) {
+	assert.equal( '000000', app.rgbToHex(0,0,0) );
+	assert.done();
+};
+
+exports['rgbToHex(255,255,255)'] = function( assert ) {
+	assert.equal( 'ffffff', app.rgbToHex(255,255,255) );
+	assert.done();
+};

@@ -155,3 +155,10 @@ function clearSwatches() {
 
 //integer sorting
 function intSort(a,b) { return a-b; }
+
+
+
+if (exports) {
+	exports['rgbToHex'] = rgbToHex;
+	exports['setRGB'] = setRGB;
+}
