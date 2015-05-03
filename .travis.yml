@@ -3,11 +3,9 @@ node_js:
   - "0.12"
 
 install:
-  - "npm install --save-dev sass"
+  - "npm i node-sass -g"
   - "npm i nodeunit -g"
 
-#before_script:
-#  - "./watch.sh"
-
 script:
+  - "node-sass css/main.scss css/main.css --style expanded"
   - "nodeunit js/tests.js"
