@@ -147,7 +147,7 @@ function generateSwatches() {
 //Draw function (TODO: add check for if swatch is the origin color and change class accordingly)
 function drawSwatch(color) {
     swatchTmpl = $('<div class="swatch"><div class="label">'+color+'</div></div>').css('background-color', color);
-    swatchTmpl.appendTo(swatches);
+    swatches.append(swatchTmpl);
 }
 
 function clearSwatches() {
@@ -163,6 +163,7 @@ if (typeof exports !== 'undefined') {
 	exports['rgbToHex'] = rgbToHex;
 	exports['setRGB'] = setRGB;
 	exports['rgbToHSL'] = rgbToHSL;
+	exports['clearSwatches'] = clearSwatches;
 	
 	exports['obtainGlobals'] = function() {
 		return {
