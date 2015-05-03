@@ -105,12 +105,6 @@ function setRGB(r,g,b) {
     rVal = r, gVal = g, bVal = b;
     rgbVal = r + ', ' + g + ', ' + b;
     rgbCSS = 'rgb('+r+', '+g+', '+b+')';
-    
-	if (typeof exports !== 'undefined') {
-		exports.rVal = r, exports.gVal = g, exports.bVal = b;
-		exports.rgbVal = r + ', ' + g + ', ' + b;
-		exports.rgbCSS = 'rgb('+r+', '+g+', '+b+')';
-    }
 }
 
 //TEMPORARY ------ Change these once regex is working to handle % signs
@@ -169,4 +163,20 @@ if (typeof exports !== 'undefined') {
 	exports['rgbToHex'] = rgbToHex;
 	exports['setRGB'] = setRGB;
 	exports['rgbToHSL'] = rgbToHSL;
+	
+	exports['obtainGlobals'] = function() {
+		return {
+			hexVal : hexVal,
+			rVal : rVal,
+			gVal : gVal,
+			bVal : bVal,
+			hVal : hVal,
+			sVal : sVal,
+			lVal : lVal,
+			rgbVal : rgbVal,
+			hslVal : hslVal,
+			rgbCSS : rgbCSS,
+			hslCSS : hslCSS
+		};
+	}
 }
