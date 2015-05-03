@@ -15,7 +15,7 @@ exports['rgbToHSL'] = function( assert ) {
 };
 
 exports['setRGB'] = function (assert) {
-	assert.expect(5);
+	assert.expect(4);
 	app.setRGB(12,34,56);
 	res = app.obtainGlobals();
 	assert.equal(12, res.rVal);
